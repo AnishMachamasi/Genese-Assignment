@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accusoft admin</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-dashboard.css') }}">
+</head>
+
+<body>
+    <input type='checkbox' id='nav-toggle'>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h1>
+                <span class="lab la-accusoft"></span> 
+                <!-- <span>   </span> -->
+                <!-- <span>Accusoft</span> -->
+            </h1>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{{ url_for('dashboard') }}" class=""><span class="las la-igloo"></span>
+                        <span>Dashboard</span></a>
+                </li> 
+                <li>
+                    <a href="" class="active"><span class="las la-igloo"></span>
+                        <span>Portfolio</span></a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <a href="/">Sign Out</a> 
+            </h2>
+            <!-- <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="search here" />
+            </div> -->
+            <div class="user-wrapper">
+                <img src="{{ url_for('static', filename='bunty.jpg') }}" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Anish Shilpakar</h4>
+                    <small>user</small>
+                </div>
+
+            </div>
+        </header>
+
+        <main>
+            <div class="recent-grid1">
+                <div class="balance">
+                    <div class="label">Total portfolio value</div>
+                    <div class="value">$2000000</div>
+                </div>
+                <div class="balance">
+                    <div class="label">Crypto Holdings</div>
+                    <div class="value">${{1200000+ sell_total_data}}</div>
+                </div>
+                <div class="balance">
+                    <div class="label">Dollar Balance</div>
+                    <div class="value">${{800000 - sell_total_data}}</div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th>Assets</th>
+                            <th>Total Coins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bitcoin (BTC)</td>
+                            <td>{{ 30 + (total_coin if symbol == 'BTC' else 0) }} BTC</td>
+                        </tr>
+                        <tr>
+                            <td>Ethereum (ETH)</td>
+                            <td>{{ 20 + (total_coin if symbol == 'ETH' else 0) }} ETH</td>
+                        </tr>
+                        <tr>
+                            <td>Tether USD (USDT)</td>
+                            <td>{{ 0 + (total_coin if symbol == 'USDT' else 0) }} USDT</td>
+                        </tr>
+                        <tr>
+                            <td>BNB</td>
+                            <td>{{ 0 + (total_coin if symbol == 'BNB' else 0) }} BNB</td>
+                        </tr>
+                        <tr>
+                            <td>USDC</td>
+                            <td>{{ 0 + (total_coin if symbol == 'USDC' else 0) }} USDC</td>
+                        </tr>
+                        <tr>
+                            <td>XRP</td>
+                            <td>{{ 0 + (total_coin if symbol == 'XRP' else 0) }} XRP</td>
+                        </tr>
+                        <tr>
+                            <td>Cardano (ADA)</td>
+                            <td>{{ 0 + (total_coin if symbol == 'ADA' else 0) }} ADA</td>
+                        </tr>
+                        <tr>
+                            <td>Dogecoin (DOGE)</td>
+                            <td>{{ 0 + (total_coin if symbol == 'DOGE' else 0) }} DOGE</td>
+                        </tr>
+                        <tr>
+                            <td>Polygon (MATIC)</td>
+                            <td>{{ 0 + (total_coin if symbol == 'MATIC' else 0) }} MATIC</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                    
+                </table>
+            </div>
+                
+
+
+
+            </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>

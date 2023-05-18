@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-login.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h2>ElectrumX</h2>
+        </div>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+    <div class="main-content">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required><br>
+
+            <input type="submit" value="Sign Up">
+        </form>
+        <a href="/">Return to Home</a>
+    </div>
+</body>
+</html>

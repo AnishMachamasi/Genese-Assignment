@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accusoft admin</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-dashboard.css') }}">
+</head>
+
+<body>
+    <input type='checkbox' id='nav-toggle'>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h1>
+                <span class="lab la-accusoft"></span> 
+                <!-- <span>   </span> -->
+                <!-- <span>Accusoft</span> -->
+            </h1>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="active"><span class="las la-igloo"></span>
+                        <span>Dashboard</span></a>
+                </li> 
+                <li>
+                    <a href="{{ url_for('portfolio') }}"><span class="las la-users"></span>
+                        <span>Portfolio</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <a href="/">Sign Out</a> 
+            </h2>
+            <!-- <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="search here" />
+            </div> -->
+            <div class="user-wrapper">
+                <img src="{{ url_for('static', filename='macha.jpg') }}" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Anish Machamasi</h4>
+                    <small>User</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+                <div class="card-single">
+                    <div>
+                        <h3></h3>
+                        <span>View Current Cryptocurrency Rates</span>
+                    </div>
+                    <div>
+                        <span class="las la-users"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1></h1>
+                        <span>Place your Orders</span>
+                    </div>
+                    <div>
+                        <span class="las la-clipboard-list"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1></h1>
+                        <span>Manage Portfolio</span>
+                    </div>
+                    <div>
+                        <span class="las la-shopping-bag"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1>{{ '₿' }}</h1>
+                        <span> Current Trend</span>
+                    </div>
+                    
+                    <div>
+                        <span class="lab la-google-wallet"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="recent-grid">
+                <div class="container">
+                <div class="project">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="name-icon">Coin</th>
+
+                                <th>Symbol</th>
+                                <th>MarketCap</th>
+                                <th>Price</th>
+                                <th>Change</th> 
+                                <th>Rank</th>
+                                <th>24hVolume</th>
+                                <th>BTCPrice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for coin in data %}
+                            <tr>
+                                <td class="coin">
+                                    <img src="{{ coin['iconUrl'] }}" alt="{{ coin['name'] }} Icon">
+                                    <span>{{ coin['name'] }}</span>
+                                </td>
+                                <td>{{ coin['symbol'] }}</td>
+                                <td>{{ coin['marketCap'] }}</td>
+                                <td>{{ coin['price'] }}</td>
+                                <td>{{ coin['change'] }}</td> 
+                                <td>{{ coin['rank'] }}</td>
+                                <td>{{ coin['24hVolume'] }}</td>
+                                <td>{{ coin['btcPrice'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>            
+                </div>
+                </div>
+                
+                <div class="order">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash-message">
+                            <p>{{ messages[0] }}</p>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                    <div class="headerbs">
+                        <h2>Place Your Order!</h2>
+                    </div>
+                    <div class="buy">
+                        <h2>Buy</h2>
+                        <form action="/store_order" method="post">
+                            <label for="symbol">Cryptocurrency Symbol:</label>
+                            <input type="text" id="symbol" name="symbol">
+                            <br>
+                            <label for="coinAmount">Amount of Coin:</label>
+                            <input type="text" id="coinAmount" name="coinAmount">
+                            <br>
+                            <label for="totalPrice">Total Price:</label>
+                            <input type="text" id="totalPrice" name="totalPrice">
+                            <br>
+                            <input type="hidden" name="transactionType" value="buy">
+                            <button type="submit">Buy</button>
+                        </form>
+                    </div>
+                
+                    <div class="sell">
+                        <h2>Sell</h2>
+                        <form action="/store_order" method="post">
+                            <label for="symbol">Cryptocurrency Symbol:</label>
+                            <input type="text" id="symbol" name="symbol">
+                            <br>
+                            <label for="sellCoinAmount">Total Coin:</label>
+                            <input type="text" id="sellCoinAmount" name="coinAmount">
+                            <br>
+                            <label for="sellTotalPrice">Total Price:</label>
+                            <input type="text" id="sellTotalPrice" name="totalPrice">
+                            <br>
+                            <input type="hidden" name="transactionType" value="sell">
+                            <button type="submit">Sell</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Function to refresh the page
+        function refreshPage() {
+            location.reload();
+        }
+        
+        // Set the refresh interval
+        var refreshInterval = 5000;
+        
+        // Refresh the page at the specified interval
+        setInterval(refreshPage, refreshInterval);
+    </script>
+</body>
+
+</html>

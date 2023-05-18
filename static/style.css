@@ -1,0 +1,81 @@
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #020723;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-brand {
+    margin: 0;
+}
+
+.navbar-brand h2 {
+    font-weight: bold;
+}
+
+.navbar-links a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #89CFF0;
+}
+
+/* Main content styling */
+/* Main content styling */
+.main-content {
+    margin-top: 0px;
+    padding: 20px;
+    text-align: center;
+    background-image: url('/static/home-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+
+.main-content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    font-size: 18px;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #111E6C;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+/* Adjustments */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}

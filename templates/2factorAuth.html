@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two-Factor Authentication</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-2factor.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h2>ElectrumX</h2>
+        </div>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+        </div>
+    </nav>
+    <div class="main-content">
+        <h1>Two-Factor Authentication</h1>
+        <form action="/verify" method="POST">
+            <label for="verification-code">Enter 6-digit Verification Code (Sent via SMS):</label>
+            <input type="text" id="verification-code" name="verification_code" pattern="[0-9]{6}" required><br>
+
+            <input type="submit" value="Verify">
+        </form>
+        <a href="/login">Return to Login Page</a>
+    </div>
+</body>
+</html>
