@@ -34,3 +34,7 @@ For web application, I have used flask, a python web framework. I have used HTML
 
 
 
+https://github.com/AnishMachamasi/Genese-Assignment/assets/98002255/042a5679-170b-40b0-b40b-7f2ec5598aec
+
+
+
