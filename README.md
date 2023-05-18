@@ -33,7 +33,7 @@ Some of the features for this project are:
 
 Then run following command in the terminal:
 
-python app.py
+`python app.py`
 
 ### API Integration
 
