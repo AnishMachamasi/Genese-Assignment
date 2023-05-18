@@ -40,6 +40,25 @@ python app.py
 In this project, I have used API which is available at following website:
 https://rapidapi.com/Coinranking/api/coinranking1
 
+#### Attributes:
+Following are the attributes that have been implemented in this project.
+1. uuid: A unique identifier for the cryptocurrency.
+2. symbol: The ticker symbol or abbreviation used to represent the cryptocurrency (e.g., BTC for Bitcoin, ETH for Ethereum).
+3. name: The name of the cryptocurrency.
+4. color: The color associated with the cryptocurrency, often used for visual representation.
+5. iconUrl: The URL pointing to the icon or logo image of the cryptocurrency.
+6. marketCap: The market capitalization of the cryptocurrency, which represents the total value of all its outstanding coins or tokens.
+7. price: The current price of the cryptocurrency.
+8. listedAt: The date and time when the cryptocurrency was listed or introduced.
+9. tier: The tier or category assigned to the cryptocurrency based on its market capitalization or other criteria.
+10. change: The percentage change in the cryptocurrency's price over a specific time period (e.g., 24 hours).
+11. rank: The ranking or position of the cryptocurrency compared to other cryptocurrencies based on factors such as market capitalization or trading volume.
+12. sparkline: A visual representation, often in the form of a line graph, showing the price movement or volatility of the cryptocurrency over a specific time period.
+13. lowVolume: A flag indicating whether the cryptocurrency has low trading volume or liquidity.
+14. coinrankingUrl: The URL that provides more information about the cryptocurrency on the Coinranking platform.
+15. 24hVolume: The trading volume of the cryptocurrency over the last 24 hours, representing the total value of all the coins or tokens traded.
+16. btcPrice: The price of the cryptocurrency denominated in Bitcoin (BTC) or its equivalent value in BTC.
+
 ### Web Application
 For web application, I have used flask, a python web framework. I have used HTML and CSS for frontend. I have used SQLite database for storing user information and transactions.
 
