@@ -40,8 +40,9 @@ def login():
                     session['email'] = email
                     
                     #if match then send the authentication code to the user via sms
-                    account_sid = 'AC889ebdf1d6145f9ed2423396da006467'
-                    auth_token = 'aa80404dd47daf94a34133840f3b8d8c'
+                    #get twilio accound sid and authentication token and place here
+                    account_sid = 'twilio_sid_code'
+                    auth_token = 'twilio_authentication_token'
                     client = Client(account_sid, auth_token)
                     
                     
@@ -131,9 +132,10 @@ def dashboard():
     }
 
     #API keys obtained from rapidapi.com
+    #Place RapidAPI key and host here
     headers = {
-        "X-RapidAPI-Key": "52ceb5a784msh9c0e480a52d97ecp1dd28ejsn40bcebde0cae",
-        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
+        "X-RapidAPI-Key": "RapidAPI_Key",
+        "X-RapidAPI-Host": "RapidAPI-Host"
     }
 
     response = requests.get(url, headers=headers, params=querystring)
